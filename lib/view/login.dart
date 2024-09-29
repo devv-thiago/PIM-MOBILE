@@ -61,8 +61,9 @@ class _LoginState extends State<Login> {
                   height: 20,
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25)),
                     fillColor: AppColors.background2,
                     filled: true,
                   ),
@@ -71,8 +72,10 @@ class _LoginState extends State<Login> {
                   height: 20,
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
                     fillColor: AppColors.background2,
                     filled: true,
                   ),
