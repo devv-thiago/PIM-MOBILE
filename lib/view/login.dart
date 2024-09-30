@@ -87,7 +87,12 @@ class _LoginState extends State<Login> {
                   height: deviceInfo.size.height * 0.06,
                   width: deviceInfo.size.width,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        '/home',
+                      );
+                    },
                     style: ButtonStyle(
                         backgroundColor:
                             WidgetStateProperty.all(AppColors.color1)),

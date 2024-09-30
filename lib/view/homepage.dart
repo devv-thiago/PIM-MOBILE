@@ -5,6 +5,16 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    MediaQueryData deviceInfo = MediaQuery.of(context);
+    return SizedBox(
+      height: deviceInfo.size.height,
+      width: deviceInfo.size.width,
+      child: const Center(
+        child: Text(
+          "Homepage",
+          style: TextStyle(fontSize: 30),
+        ),
+      ),
+    );
   }
 }
