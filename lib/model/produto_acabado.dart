@@ -5,6 +5,7 @@ class ProdutoAcabado extends Produto {
   DateTime dataPlantio = DateTime.now(), dataColheita = DateTime.now();
 
   ProdutoAcabado(
+    super.quantidade,
     super.nome,
     super.peso,
     super.preco,
