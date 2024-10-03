@@ -9,10 +9,5 @@ class ProdutoAcabado extends Produto {
     super.nome,
     super.peso,
     super.preco,
-    super.dataVencimento,
-    this.receita,
-    this.lote,
-    this.dataPlantio,
-    this.dataColheita,
   );
 }

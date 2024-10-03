@@ -1,11 +1,15 @@
+import 'package:urban_green/data/pedido_mock.dart';
 import 'package:urban_green/model/pedido.dart';
 
 class ClienteController {
   List<PedidoVenda> pedidos = [];
 
-  List<PedidoVenda> consultaHistoricoVenda() {
-    pedidos = [];
-    return pedidos;
+  ClienteController() {
+    consultaHistoricoVenda();
+  }
+
+  void consultaHistoricoVenda() {
+    pedidos = pedidosMock;
   }
 
   bool login() {
