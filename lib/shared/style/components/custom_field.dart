@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:urban_green/shared/style/colors.dart';
 import 'package:urban_green/shared/style/fontstyle.dart';
 
@@ -9,7 +10,6 @@ class CustomizedTextForm extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? inputType;
-  final double width;
   final List<TextInputFormatter>? inputFormatters; // Ajuste aqui
 
   const CustomizedTextForm({
@@ -19,7 +19,6 @@ class CustomizedTextForm extends StatelessWidget {
     this.controller,
     this.validator,
     this.inputType,
-    this.width = 0,
     this.inputFormatters,
   });
 
@@ -61,12 +60,17 @@ class CustomizedTextForm extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
                   title ?? "",
-                  style: CustomizedFontStyle.header3,
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      color: AppColors.color1,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(height: 4),
               SizedBox(
-                width: width,
                 height: 80, // Ajuste a altura conforme necessário
                 child: TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -77,7 +81,7 @@ class CustomizedTextForm extends StatelessWidget {
                   decoration: InputDecoration(
                     fillColor: AppColors.color3,
                     labelText: label,
-                    labelStyle: CustomizedFontStyle.paragraph2,
+                    labelStyle: CustomizedFontStyle.paragraph1,
                     contentPadding: const EdgeInsets.symmetric(
                       vertical: 20,
                       horizontal: 30,
