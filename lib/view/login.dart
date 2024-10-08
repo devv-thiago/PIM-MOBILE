@@ -1,151 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:urban_green/shared/style/colors.dart';
-import 'package:urban_green/shared/style/fontstyle.dart';
+import 'package:urban_green/shared/style/components/custom_field.dart';
 
-class Login extends StatefulWidget {
+class Login extends StatelessWidget {
   const Login({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
-  late TextEditingController codRegistroController;
-  late TextEditingController passwordController;
-
-  @override
-  void dispose() {
-    codRegistroController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    codRegistroController = TextEditingController();
-    passwordController = TextEditingController();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    MediaQueryData deviceInfo = MediaQuery.of(context);
-    return PopScope(
-        canPop: false,
-        onPopInvokedWithResult: (bool didPop, Object? result) async {
-          if (didPop) {
-            return;
-          }
-          final bool shouldPop = await _showBackDialog() ?? false;
-          if (context.mounted && shouldPop) {
-            SystemNavigator.pop();
-          }
-        },
-        child: Scaffold(
-            body: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.only(right: 20, left: 20),
-            height: deviceInfo.size.height,
-            width: deviceInfo.size.width,
-            decoration: const BoxDecoration(
-              color: AppColors.background,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FlutterLogo(
-                  size: deviceInfo.size.height * 0.2,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25)),
-                    fillColor: AppColors.background2,
-                    filled: true,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    fillColor: AppColors.background2,
-                    filled: true,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: deviceInfo.size.height * 0.06,
-                  width: deviceInfo.size.width,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                        context,
-                        '/home',
-                      );
-                    },
-                    style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStateProperty.all(AppColors.color1)),
-                    child: const Text(
-                      "Entrar",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 25,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        )));
-  }
+    final deviceInfo = MediaQuery.of(context);
 
-  Future<bool?> _showBackDialog() {
-    return showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(
-            'Sair?',
-            style: CustomizedFontStyle.header3,
-          ),
-          content: Text(
-            'Tem certeza que deseja sair?',
-            style: CustomizedFontStyle.paragraph1,
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context, false);
-              },
-              child: Text(
-                'Não',
-                style: CustomizedFontStyle.infoParagraph,
+    return Scaffold(
+      body: Stack(alignment: Alignment.bottomCenter, children: <Widget>[
+        Container(
+          height: deviceInfo.size.height,
+          width: deviceInfo.size.width,
+          color: AppColors.color1,
+          child: SingleChildScrollView(
+              child: Column(
+            children: [
+              SizedBox(
+                height: deviceInfo.size.height * 0.3,
+                child: Image.asset('assets/images/app_icon_white.png'),
               ),
-            ),
-            TextButton(
-              onPressed: () {
-                SystemNavigator.pop();
-              },
-              child: Text(
-                'Sim',
-                style: CustomizedFontStyle.infoParagraph,
-              ),
-            ),
-          ],
-        );
-      },
+              Container(
+                padding: EdgeInsets.only(
+                    left: deviceInfo.size.width * 0.1,
+                    right: deviceInfo.size.width * 0.1),
+                height: deviceInfo.size.height * 0.7,
+                width: deviceInfo.size.width,
+                decoration: const BoxDecoration(
+                    color: AppColors.color3,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    )),
+                child: Column(
+                  children: [
+                    CustomizedTextForm(
+                      label: '',
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )),
+        ),
+      ]),
     );
   }
 }
