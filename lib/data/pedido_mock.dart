@@ -16,12 +16,15 @@ List<PedidoVenda> pedidosMock = [
               rua: "Rua das Flores", complemento: "Apto 201", numero: 45)),
       situacao: "Concluído",
       itensPedido: [ProdutoAcabado(20, "Tomate", 30, 15)]),
-  PedidoVenda(3, 12,
+  PedidoVenda(3, 24,
       cliente: Cliente(
           enderecoEntrega:
               Endereco(rua: "Avenida Brasil", complemento: "", numero: 500)),
       situacao: "Cancelado",
-      itensPedido: [ProdutoAcabado(30, "Cenoura", 25, 12)]),
+      itensPedido: [
+        ProdutoAcabado(30, "Cenoura", 25, 12),
+        ProdutoAcabado(30, "Cenoura", 20, 12)
+      ]),
   PedidoVenda(4, 7,
       cliente: Cliente(
           enderecoEntrega: Endereco(

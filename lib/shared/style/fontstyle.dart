@@ -24,6 +24,13 @@ class CustomizedFontStyle {
       fontSize: 25,
     ),
   );
+  static final headerGreen3 = GoogleFonts.poppins(
+    textStyle: const TextStyle(
+      color: AppColors.color1,
+      fontWeight: FontWeight.bold,
+      fontSize: 25,
+    ),
+  );
   static final header4 = GoogleFonts.poppins(
     textStyle: const TextStyle(
       color: AppColors.color4,
@@ -34,6 +41,13 @@ class CustomizedFontStyle {
   static final headerWhite3 = GoogleFonts.poppins(
     textStyle: const TextStyle(
       color: AppColors.color3,
+      fontWeight: FontWeight.bold,
+      fontSize: 25,
+    ),
+  );
+  static final headerGray3 = GoogleFonts.poppins(
+    textStyle: const TextStyle(
+      color: AppColors.color5,
       fontWeight: FontWeight.bold,
       fontSize: 25,
     ),

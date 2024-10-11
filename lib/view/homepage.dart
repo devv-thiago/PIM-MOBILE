@@ -26,10 +26,10 @@ class Homepage extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.only(
-                    left: deviceInfo.size.width * 0.1,
-                    right: deviceInfo.size.width * 0.1,
+                    left: deviceInfo.size.width * 0.07,
+                    right: deviceInfo.size.width * 0.07,
                     bottom: deviceInfo.size.height * 0.1),
-                height: deviceInfo.size.height * 0.7,
+                height: deviceInfo.size.height,
                 width: deviceInfo.size.width,
                 decoration: const BoxDecoration(
                     color: AppColors.color3,
@@ -37,22 +37,25 @@ class Homepage extends StatelessWidget {
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
                     )),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: deviceInfo.size.height * 0.7,
-                      width: deviceInfo.size.width,
-                      child: ListView.builder(
-                        itemCount: clienteController.pedidos.length,
-                        itemBuilder: (context, index) => PedidoWidget(
-                          deviceInfo.size.height * 0.2,
-                          deviceInfo.size.width * 0.7,
-                          clienteController.pedidos[index],
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(top: 50),
+                        height: deviceInfo.size.height,
+                        width: deviceInfo.size.width,
+                        child: ListView.builder(
+                          itemCount: clienteController.pedidos.length,
+                          itemBuilder: (context, index) => PedidoWidget(
+                            deviceInfo.size.height * 0.3,
+                            deviceInfo.size.width * 0.7,
+                            clienteController.pedidos[index],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               )
             ],
