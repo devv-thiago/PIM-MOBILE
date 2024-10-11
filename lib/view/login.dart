@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:urban_green/shared/style/colors.dart';
 import 'package:urban_green/shared/style/components/custom_field.dart';
 import 'package:urban_green/shared/style/fontstyle.dart';
+import 'package:urban_green/view/homepage.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -78,7 +79,12 @@ class Login extends StatelessWidget {
                               backgroundColor: WidgetStateProperty.all(
                             AppColors.color1,
                           )),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Homepage()));
+                          },
                           child: Text(
                             "Entrar",
                             style: CustomizedFontStyle.paragraphWhite1,
