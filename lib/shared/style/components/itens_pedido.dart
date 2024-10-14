@@ -29,33 +29,50 @@ class ItensPedido extends StatelessWidget {
       height: height,
       width: width,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.only(top: 50),
-              height: deviceInfo.size.height * 0.2,
-              width: deviceInfo.size.width,
+          Padding(
+            padding: EdgeInsets.only(
+              left: deviceInfo.size.width * 0.05,
+              right: deviceInfo.size.width * 0.05,
+              top: deviceInfo.size.height * 0.015,
+            ),
+            child: Text(
+              "Itens do Pedido",
+              style: CustomizedFontStyle.headerGreen3,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: deviceInfo.size.width * 0.05,
+            ),
+            child: SizedBox(
+              height: height *
+                  0.8, // Ajustar a altura do ListView conforme necessário
               child: ListView.builder(
                 itemCount: pedidoVenda.itensPedido.length,
                 itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Text(
-                        pedidoVenda.itensPedido[index].nome,
-                        style: CustomizedFontStyle.headerGreen3,
-                      ),
-                      Text(
-                        pedidoVenda.itensPedido[index].quantidade.toString(),
-                        style: CustomizedFontStyle.headerGray3,
-                      ),
-                      Text(
-                        NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$')
-                            .format(pedidoVenda.itensPedido[index].preco),
-                        style: CustomizedFontStyle.headerGray3,
-                      ),
-                    ],
+                  final item = pedidoVenda.itensPedido[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        bottom: 10.0), // Adicionando padding entre os itens
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item.nome,
+                          style: CustomizedFontStyle.headerGreen3,
+                        ),
+                        Text(
+                          "Quantidade: ${item.quantidade}",
+                          style: CustomizedFontStyle.headerGray3,
+                        ),
+                        Text(
+                          "Preço: ${NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$').format(item.preco)}",
+                          style: CustomizedFontStyle.headerGray3,
+                        ),
+                      ],
+                    ),
                   );
                 },
               ),
