@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:urban_green/controller/pedido_controller.dart';
 import 'package:urban_green/shared/style/colors.dart';
 import 'package:urban_green/shared/style/components/custom_field.dart';
 import 'package:urban_green/shared/style/fontstyle.dart';
@@ -59,7 +60,7 @@ class Login extends StatelessWidget {
                     ),
                     const CustomizedTextForm(
                       title: "Usuário",
-                      label: "Digite seu CNPJ",
+                      label: "Digite seu usuário",
                     ),
                     SizedBox(
                       height: deviceInfo.size.height * 0.01,
@@ -80,6 +81,9 @@ class Login extends StatelessWidget {
                             AppColors.color1,
                           )),
                           onPressed: () {
+                            PedidoController pedidoController =
+                                PedidoController();
+                            pedidoController.fetchData();
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(

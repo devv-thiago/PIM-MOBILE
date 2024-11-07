@@ -36,7 +36,7 @@ class Homepage extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: clienteController.pedidos.length,
                   itemBuilder: (context, index) => PedidoWidget(
-                    deviceInfo.size.height * 0.3,
+                    deviceInfo.size.height * 0.35,
                     deviceInfo.size.width * 0.7,
                     clienteController.pedidos[index],
                   ),

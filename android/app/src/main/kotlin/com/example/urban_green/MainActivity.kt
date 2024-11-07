@@ -1,4 +1,4 @@
-package com.example.urban_green
+package br.unip.urban_green
 
 import io.flutter.embedding.android.FlutterActivity
 

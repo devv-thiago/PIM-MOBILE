@@ -19,7 +19,7 @@ class DetalhePedido extends StatelessWidget {
           color: AppColors.color1,
           child: Column(children: [
             SizedBox(
-              height: deviceInfo.size.height * 0.3,
+              height: deviceInfo.size.height * 0.2,
               child: Image.asset('assets/images/app_icon_white.png'),
             ),
             Container(
@@ -28,7 +28,7 @@ class DetalhePedido extends StatelessWidget {
                   left: deviceInfo.size.width * 0.07,
                   right: deviceInfo.size.width * 0.07,
                 ),
-                height: deviceInfo.size.height * 0.7,
+                height: deviceInfo.size.height * 0.8,
                 width: deviceInfo.size.width,
                 decoration: const BoxDecoration(
                     color: AppColors.color3,
@@ -43,12 +43,12 @@ class DetalhePedido extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       PedidoWidget(
-                        deviceInfo.size.height * 0.3,
+                        deviceInfo.size.height * 0.32,
                         deviceInfo.size.width,
                         pedidoVenda,
                       ),
                       ItensPedido(
-                        deviceInfo.size.height * 0.3,
+                        deviceInfo.size.height * 0.35,
                         deviceInfo.size.width,
                         pedidoVenda,
                       )

@@ -23,6 +23,7 @@ List<PedidoVenda> pedidosMock = [
       situacao: "Cancelado",
       itensPedido: [
         ProdutoAcabado(30, "Cenoura", 25, 12),
+        ProdutoAcabado(30, "Cenoura", 20, 12),
         ProdutoAcabado(30, "Cenoura", 20, 12)
       ]),
   PedidoVenda(4, 7,
