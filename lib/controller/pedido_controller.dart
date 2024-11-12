@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mssql_connection/mssql_connection.dart';
 
@@ -16,8 +17,10 @@ class PedidoController {
         timeoutInSeconds: dotenv.getInt("TIMEOUTSECONDS"),
       );
       if (isConnected) {
-        String query = 'SELECT * FROM your_table';
+        String query = 'SELECT * FROM usuarios';
         String result = await mssqlConnection.getData(query);
+        debugPrint(result);
+        mssqlConnection.disconnect();
       }
     } catch (e) {
       throw Exception("Erro ao conectar: $e");
