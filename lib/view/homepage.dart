@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:urban_green/controller/cliente.dart';
+import 'package:urban_green/controller/pedido_controller.dart';
 import 'package:urban_green/shared/style/colors.dart';
 import 'package:urban_green/shared/style/components/pedido_widget.dart';
 
@@ -9,7 +9,7 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
-    ClienteController clienteController = ClienteController();
+    PedidoController pedidoController = PedidoController();
 
     return Scaffold(
       body: Container(
@@ -34,11 +34,11 @@ class Homepage extends StatelessWidget {
                   ),
                 ),
                 child: ListView.builder(
-                  itemCount: clienteController.pedidos.length,
+                  itemCount: pedidoController.pedidosCliente.length,
                   itemBuilder: (context, index) => PedidoWidget(
                     deviceInfo.size.height * 0.35,
                     deviceInfo.size.width * 0.7,
-                    clienteController.pedidos[index],
+                    pedidoController.pedidosCliente[index],
                   ),
                 ),
               ),
