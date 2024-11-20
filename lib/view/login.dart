@@ -94,7 +94,7 @@ class Login extends StatelessWidget {
                                 ? Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const Homepage()))
+                                        builder: (context) => Homepage(usuarioController.text)))
                                 : showDialog<void>(
                                     context: context,
                                     builder: (BuildContext context) {

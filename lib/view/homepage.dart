@@ -4,7 +4,8 @@ import 'package:urban_green/shared/style/colors.dart';
 import 'package:urban_green/shared/style/components/pedido_widget.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+  String documentoCliente;
+  Homepage(this.documentoCliente, {super.key});
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -13,6 +14,8 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   PedidoController pedidoController = PedidoController();
   bool isLoading = true;
+  
+
 
   @override
   void initState() {
@@ -21,9 +24,11 @@ class _HomepageState extends State<Homepage> {
   }
 
   Future<void> _loadPedidos() async {
-    await pedidoController.retornaPedidos(); // Chama o método para buscar os dados
+    await pedidoController
+        .retornaPedidos(widget.documentoCliente); // Chama o método para buscar os dados
     setState(() {
-      isLoading = false; // Atualiza o estado para indicar que o carregamento terminou
+      isLoading =
+          false; // Atualiza o estado para indicar que o carregamento terminou
     });
   }
 
