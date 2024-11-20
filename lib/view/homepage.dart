@@ -3,13 +3,33 @@ import 'package:urban_green/controller/pedido_controller.dart';
 import 'package:urban_green/shared/style/colors.dart';
 import 'package:urban_green/shared/style/components/pedido_widget.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  PedidoController pedidoController = PedidoController();
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPedidos();
+  }
+
+  Future<void> _loadPedidos() async {
+    await pedidoController.retornaPedidos(); // Chama o método para buscar os dados
+    setState(() {
+      isLoading = false; // Atualiza o estado para indicar que o carregamento terminou
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
-    PedidoController pedidoController = PedidoController();
 
     return Scaffold(
       body: Container(
@@ -33,14 +53,16 @@ class Homepage extends StatelessWidget {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                child: ListView.builder(
-                  itemCount: pedidoController.pedidosCliente.length,
-                  itemBuilder: (context, index) => PedidoWidget(
-                    deviceInfo.size.height * 0.35,
-                    deviceInfo.size.width * 0.7,
-                    pedidoController.pedidosCliente[index],
-                  ),
-                ),
+                child: isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : ListView.builder(
+                        itemCount: pedidoController.pedidosCliente.length,
+                        itemBuilder: (context, index) => PedidoWidget(
+                          deviceInfo.size.height * 0.35,
+                          deviceInfo.size.width * 0.7,
+                          pedidoController.pedidosCliente[index],
+                        ),
+                      ),
               ),
             ),
           ],
